@@ -1,7 +1,7 @@
 #Clustering CBC
 
 library(readxl)
-x <- read_excel("/Users/judithrichter/Desktop/Bachelorarbeit/Daten/Hochzuladende Dateien/Data_CBC.xlsx", sheet = "CBC_ Choices_02")
+x <- read_excel("Data_CBC.xlsx", sheet = "CBC_ Choices_02")
 View(x)
 
 x$Q01_A001 <- as.factor(x$Q01_A001)
@@ -49,7 +49,7 @@ code=caEncodedDesign(design_RCB)
 code
 
 library(readxl)
-preferences <- read_excel("/Users/judithrichter/Desktop/Bachelorarbeit/Daten/Hochzuladende Dateien/Data_RBC.xlsx", sheet = "RBC_ready for analysis", range = "I1:Q199")
+preferences <- read_excel("Data_RBC.xlsx", sheet = "RBC_ready for analysis", range = "I1:Q199")
 preferences
 
 cluster <- caSegmentation(preferences, code)
@@ -60,7 +60,7 @@ preferences$cluster <- cluster$sclu
 #Correlation analysis of both clusterings
 
 library(readxl)
-data_clusters <- read_excel("//Users/judithrichter/Desktop/Bachelorarbeit/Daten/Hochzuladende Dateien/Cluster analysis.xlsx")
+data_clusters <- read_excel("Cluster analysis.xlsx")
 data_clusters
 
 cor(data_clusters$cluster_RCB, data_clusters$cluster_CBC)
@@ -68,7 +68,7 @@ cor(data_clusters$cluster_RCB, data_clusters$cluster_CBC)
 #Sociodemographics of groups
 
 library(readxl)
-socio <- read_excel("/Users/judithrichter/Desktop/Bachelorarbeit/Daten/Hochzuladende Dateien/Sociodemographics.xlsx", "Sociodemogr_for clustering")
+socio <- read_excel("Sociodemographics.xlsx", "Sociodemogr_for clustering")
 socio
 
 #Cluster 1
@@ -110,7 +110,7 @@ prop.table(table(subset_cluster2$Travel_companion))
 #Analysis of Means and Variances
 
 library(readxl)
-RBC_Cluster <- read_excel("/Users/judithrichter/Desktop/Bachelorarbeit/Daten/Hochzuladende Dateien/Data_RBC.xlsx", sheet = "RBC_Cluster")
+RBC_Cluster <- read_excel("Data_RBC.xlsx", sheet = "RBC_Cluster")
 RBC_Cluster
 
 #Entire sample
@@ -210,7 +210,7 @@ average_Variances
 #Entire sample
 
 library(readxl)
-CBC_Cluster <- read_excel("/Users/judithrichter/Desktop/Bachelorarbeit/Daten/Hochzuladende Dateien/Data_CBC.xlsx", sheet = "Cluster_not edited")
+CBC_Cluster <- read_excel("Data_CBC.xlsx", sheet = "Cluster_not edited")
 CBC_Cluster
 
 Q1_freq <- prop.table(table(CBC_Cluster$Q02_A001))
@@ -265,10 +265,10 @@ table_comparison
 
 
 library(readxl)
-cluster <- read_excel("/Users/judithrichter/Desktop/Bachelorarbeit/Daten/Hochzuladende Dateien/Data_RBC.xlsx", sheet = "RBC_Cluster")
+cluster <- read_excel("Data_RBC.xlsx", sheet = "RBC_Cluster")
 cluster
 
-clusterreg <- read_excel("/Users/judithrichter/Desktop/Bachelorarbeit/Daten/Hochzuladende Dateien/Data_RBC.xlsx", sheet = "RBC_Regression analysis_Cluster")
+clusterreg <- read_excel("Data_RBC.xlsx", sheet = "RBC_Regression analysis_Cluster")
 clusterreg
 
 #Cluster 1
@@ -565,7 +565,7 @@ ggplot(cluster_table_RBC_melt, aes(x = Levels, y = Value, fill = Cluster)) +
 
 # CBC with clusters from RBC
 library(readxl)
-x <- read_excel("/Users/judithrichter/Desktop/Bachelorarbeit/Daten/Hochzuladende Dateien/Data_CBC.xlsx", sheet = "CBC_Cluster")
+x <- read_excel("Data_CBC.xlsx", sheet = "CBC_Cluster")
 #View(x)
 
 #Cluster 1
@@ -838,41 +838,3 @@ ggplot(cluster_table_CBC_melt, aes(x = Levels, y = Value, fill = Cluster)) +
   scale_fill_manual(values = c("Cluster_CBC.1" = "darkgrey", "Cluster_CBC.2" = "lightgrey"),
                     labels = c("Cluster 1", "Cluster 2"))
 
-
-
-#Graphics for comparing both conjoint methods
-
-cluster_table <- cbind(cluster_table_RBC, cluster_table_CBC)
-cluster_table
-
-cluster1 <- cluster_table[,-c(3,4,6)]
-cluster1
-
-cluster_table_1_melt <- melt(cluster1, id.vars = "Levels", variable.name = "Cluster", value.name = "Value")
-cluster_table_1_melt
-
-ggplot(cluster_table_1_melt, aes(x = Levels, y = Value, fill = Cluster)) + 
-  geom_bar(stat = "identity", position = "dodge") +
-  geom_text(aes(label = round(Value, 2)), vjust = -0.5, hjust = 0.5, position = position_dodge(0.9), size = 5) +
-  labs(x = "Levels",
-       y = "Values") +
-  theme_minimal(base_family = "Arial", base_size = 20) +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
-  scale_fill_manual(values = c("Cluster_TCA.1" = "darkgrey", "Cluster_CBC.1" = "lightgrey"),
-                    labels = c("Cluster1_TCA", "Cluster1_CBC"))
-
-cluster2 <- cluster_table[,-c(2,4,5)]
-cluster2
-
-cluster_table_2_melt <- melt(cluster2, id.vars = "Levels", variable.name = "Cluster", value.name = "Value")
-cluster_table_2_melt
-
-ggplot(cluster_table_2_melt, aes(x = Levels, y = Value, fill = Cluster)) + 
-  geom_bar(stat = "identity", position = "dodge") +
-  geom_text(aes(label = round(Value, 2)), vjust = -0.5, hjust = 0.5, position = position_dodge(0.9), size = 5) +
-  labs(x = "Levels",
-       y = "Values") +
-  theme_minimal(base_family = "Arial", base_size = 20) +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
-  scale_fill_manual(values = c("Cluster_TCA.2" = "darkgrey", "Cluster_CBC.2" = "lightgrey"),
-                    labels = c("Cluster2_TCA", "Cluster2_CBC"))
