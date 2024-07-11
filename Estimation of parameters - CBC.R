@@ -1,7 +1,7 @@
 #Estimation of parameters - Choice-based Conjoint Analysis
 
 library(readxl)
-preference <- read_excel("/Users/judithrichter/Desktop/Bachelorarbeit/Daten/Hochzuladende Dateien/Data_CBC.xlsx", sheet = "CBC_ready for analysis_Effect")
+preference <- read_excel("Data_CBC.xlsx", sheet = "CBC_ready for analysis_Effect")
 #View(preference)
 str(preference)
 
