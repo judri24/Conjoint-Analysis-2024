@@ -1,7 +1,7 @@
 #Analysis of Questions about the two conjoint methods
 
 library(readxl)
-Question_about_CA <- read_excel("/Users/judithrichter/Desktop/Bachelorarbeit/Daten/Hochzuladende Dateien/Question about CA.xlsx", sheet = "Q about CA_edited")
+Question_about_CA <- read_excel("Question about CA.xlsx", sheet = "Q about CA_edited")
 print(Question_about_CA)
 
 table(Question_about_CA$`G07Q01 & G07Q02`)
