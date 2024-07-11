@@ -26,7 +26,7 @@ code
 levna <- c("Coastal Region", "City", "Mountains","Plane", "Car", "Train/Bus","Hotel", "Holiday home", "Camping", "Sightseeing", "Relaxation", "Sport activities")
 
 library(readxl)
-preferences <- read_excel("/Users/judithrichter/Desktop/Bachelorarbeit/Daten/Hochzuladende Dateien/Data_RBC.xlsx", sheet = "RBC_ready for analysis", range = "I1:Q199")
+preferences <- read_excel("Data_RBC.xlsx", sheet = "RBC_ready for analysis", range = "I1:Q199")
 preferences
 
 # Conjoint(data on preference, coded research design, the names of variables and levels, the type of data preferences)
@@ -37,8 +37,10 @@ model <- Conjoint(preferences, code, levna, y.type = "rank")
 #Determining the missing part-worth utilties
 #As effect-coding is used, the coefficient of the missing level can be calculated by the difference of the other two levels
 
+# Regressionanalysis for extracting the coefficients
+
 library(readxl)
-x<- read_excel("/Users/judithrichter/Desktop/Bachelorarbeit/Daten/Hochzuladende Dateien/Data_RBC.xlsx", sheet = "RBC_Regression analysis")
+x<- read_excel("Data_RBC.xlsx", sheet = "RBC_Regression analysis")
 str(x)
 
 x$DestinationCoastalRegion <- (-1) *x$DestinationCoastalRegion
