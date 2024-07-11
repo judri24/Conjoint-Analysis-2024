@@ -10,11 +10,11 @@ experiment<-expand.grid(
 
 #Creation of the orthogonal fractional factorial design for the ranking-based conjoint analysis
 
-design_RBCA=caFactorialDesign(data=experiment,type="orthogonal")
-design_RBCA
+design_RBC=caFactorialDesign(data=experiment,type="orthogonal")
+design_RBC
 
 #Coding the orthogonal fractional factorial design
 
-code=caEncodedDesign(design_TCA)
+code=caEncodedDesign(design_RBC)
 code
 
