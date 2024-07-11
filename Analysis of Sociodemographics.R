@@ -1,7 +1,7 @@
 #Analysis of sociodemographic questions
 
 library(readxl)
-x<- read_excel("/Users/judithrichter/Desktop/Bachelorarbeit/Daten/Hochzuladende Dateien/Sociodemographics.xlsx", sheet = "Sociodemogr_edited")
+x<- read_excel("Sociodemographics.xlsx", sheet = "Sociodemogr_edited")
 #print(Sociodemographics)
 str(x)
 
@@ -19,11 +19,9 @@ prop.table(table(x$Gender))
 #Analysis of Occupation
 
 table(x$Occupation)
-
 prop.table(table(x$Occupation))
 
 #Analysis of travel companion
 
 table(x$Travel_companion)
-
 prop.table(table(x$Travel_companion))
