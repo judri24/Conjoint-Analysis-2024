@@ -184,7 +184,7 @@ Q8_variance2 <- var(RBC_Cluster2$SQ008)
 Q9_variance2 <- var(RBC_Cluster2$SQ009)
 
 table_comparison <- data.frame(
-  "Stimuli" = c("1","2", "3", "4", "5", "6","7","8","9"),
+  "Stimulus" = c("1","2", "3", "4", "5", "6","7","8","9"),
   "Mean Complete" = c(Q1_mean, Q2_mean, Q3_mean, Q4_mean, Q5_mean, Q6_mean, Q7_mean, Q8_mean, Q9_mean),
   "Mean Cluster1" = c(Q1_mean1, Q2_mean1, Q3_mean1, Q4_mean1, Q5_mean1, Q6_mean1, Q7_mean1, Q8_mean1, Q9_mean1),
   "Mean Cluster2" = c(Q1_mean2, Q2_mean2, Q3_mean2, Q4_mean2, Q5_mean2, Q6_mean2, Q7_mean2, Q8_mean2, Q9_mean2),
@@ -253,7 +253,7 @@ Q9_freq2 <- prop.table(table(CBC_Cluster2$Q10_A001))
 
 
 table_comparison <- data.frame(
-  "Stimuli" = c("1","2", "3", "4", "5", "6","7","8","9"),
+  "Stimulus" = c("1","2", "3", "4", "5", "6","7","8","9"),
   "Freq Complete" = c(Q1_freq, Q2_freq, Q3_freq, Q4_freq, Q5_freq, Q6_freq, Q7_freq, Q8_freq, Q9_freq),
   "Freq Cluster1" = c(Q1_freq1, Q2_freq1, Q3_freq1, Q4_freq1, Q5_freq1, Q6_freq1, Q7_freq1, Q8_freq1, Q9_freq1),
   "Freq Cluster2" = c(Q1_freq2, Q2_freq2, Q3_freq2, Q4_freq2, Q5_freq2, Q6_freq2, Q7_freq2, Q8_freq2, Q9_freq2)
