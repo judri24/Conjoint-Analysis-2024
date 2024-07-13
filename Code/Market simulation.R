@@ -52,7 +52,7 @@ preferences
 library(conjoint)
 model <- Conjoint(preferences, code, levna, y.type = "rank")
 
-preferences <- caRankToScore(preferences) #The dataset must be transformed to score rating where 1 is the least likely chosen and 9 is the most likely chosen stimuli as otherwise the market share won't be determined correctly, without this function the total utility corresponds to the expected average ranking of the stimuli, but the expected market share is not correct
+preferences <- caRankToScore(preferences) #The dataset must be transformed to score rating where 1 is the least likely chosen and 9 is the most likely chosen stimulus as otherwise the market share won't be determined correctly, without this function the total utility corresponds to the expected average ranking of the stimuli, but the expected market share is not correct
 results_simulation <- ShowAllSimulations(profiles[c(2, 13, 30, 46, 62), ], preferences, code)
 results_simulation <- as.data.frame(results_simulation)
 
@@ -97,15 +97,15 @@ predict_mnl_pref
 
 #Average rank of all stimuli
 
-Rank_Stimuli1 <- round(mean(preferences$SQ001), 2)
-Rank_Stimuli2 <- round(mean(preferences$SQ002), 2)
-Rank_Stimuli3 <- round(mean(preferences$SQ003), 2)
-Rank_Stimuli4 <- round(mean(preferences$SQ004), 2)
-Rank_Stimuli5 <- round(mean(preferences$SQ005), 2)
-Rank_Stimuli6 <- round(mean(preferences$SQ006), 2)
-Rank_Stimuli7 <- round(mean(preferences$SQ007), 2)
-Rank_Stimuli8 <- round(mean(preferences$SQ008), 2)
-Rank_Stimuli9 <- round(mean(preferences$SQ009), 2)
+Rank_Stimulus1 <- round(mean(preferences$SQ001), 2)
+Rank_Stimulus2 <- round(mean(preferences$SQ002), 2)
+Rank_Stimulus3 <- round(mean(preferences$SQ003), 2)
+Rank_Stimulus4 <- round(mean(preferences$SQ004), 2)
+Rank_Stimulus5 <- round(mean(preferences$SQ005), 2)
+Rank_Stimulus6 <- round(mean(preferences$SQ006), 2)
+Rank_Stimulus7 <- round(mean(preferences$SQ007), 2)
+Rank_Stimulus8 <- round(mean(preferences$SQ008), 2)
+Rank_Stimulus9 <- round(mean(preferences$SQ009), 2)
 
 #Predicted total utility
 library(conjoint)
@@ -144,7 +144,7 @@ results_simulation <- as.data.frame(results_simulation)
 
 table_RCB <- data.frame(
   Stimulus = c(1,2,3,4,5,6,7,8,9),
-  "Average Ranking" = c(Rank_Stimuli1, Rank_Stimuli2, Rank_Stimuli3, Rank_Stimuli4, Rank_Stimuli5, Rank_Stimuli6, Rank_Stimuli7, Rank_Stimuli8, Rank_Stimuli9),
+  "Average Ranking" = c(Rank_Stimulus1, Rank_Stimulus2, Rank_Stimulus3, Rank_Stimulus4, Rank_Stimulus5, Rank_Stimulus6, Rank_Stimulus7, Rank_Stimulus8, Rank_Stimulus9),
   "Predicted Total Utility" = results_simulation$TotalUtility
 )
 print(table_RCB)
