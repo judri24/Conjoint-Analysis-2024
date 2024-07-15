@@ -1,6 +1,10 @@
-<b> Bachelor Thesis: A comparative analysis of Choice-based and Ranking-based Conjoint Analysis </b>
+<b> Bachelor Thesis: A comparative analysis of Ranking-based and Choice-basedConjoint Analysis </b>
 
-These are the datasets and R codes used in my bachelor thesis with the title "A comparative analysis of Choice-based (CBC) and Ranking-based (RBC) conjoint analysis"
+These are the datasets and R codes used in my bachelor thesis with the title "A comparative analysis of Ranking-based and Choice-based conjoint analysis"
+
+<p><b>Abbreviations:</b></p>
+<p>RBC - Ranking-based Conjoint Analysis </p>
+<p>CBC - Choice-based Conjoint Analysis </p>
 
 <p><b>Datasets:</b></p>
           <p>1. The raw dataset</p>
